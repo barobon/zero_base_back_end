@@ -23,5 +23,25 @@ names = {"제로", "베이스", "자바", "스쿨", "자바", "베이스", "베�
 예시 입출력 설명
 중복이 있는 "베이스"와 "자바"를 골라내면, 총 6명이 참가하였다. 따라서 6명 중 4명을 뽑는 가짓수를 구하면 된다.
  */
+import java.util.*;
+
 public class test1_p2 {
+    //set을 통해 중복 제거
+    public int solution(String[] names){
+        //스트링 배열을 ArrayList 형태로 리턴한 것을 셋에 저장, 중복 제거됨
+        //Set은 인터페이스, HashSet은 Set을 상속함
+        Set<String> set = new HashSet<>(Arrays.asList(names));
+        int n = set.size();
+        int m = 4;
+
+        //nC4 계산: nP4/4!
+        long numerator =1;      //분모
+        long denominator =1;    //분자
+        for (int i=0; i<m; i++){
+            numerator *= (n-i);
+            denominator *= i+1;
+        }
+
+        return (int)(numerator/denominator);
+    }
 }
