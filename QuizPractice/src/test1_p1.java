@@ -23,6 +23,7 @@ public class test1_p1 {
             if(intArray[i]==0) continue;
 
             int num = i*2;
+            //i의 배수들을 전부 소수에서 제외
             while (num<n){
                 intArray[num]=0;
                 num+=i;
